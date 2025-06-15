@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="join-container">
+        <h1>Join Chat Room</h1>
+        <div class="input-group">
+            <input type="text" id="room-id" placeholder="Enter Chat Room ID">
+            <input type="text" id="username" placeholder="Enter your username">
+            <button onclick="joinRoom()">Join Room</button>
+        </div>
+    </div>
+
+    <div id="chat-container" style="display: none;">
+        <div class="chat-header">
+            <h2>Chat Room: <span id="current-room"></span></h2>
+            <div class="header-buttons">
+                <button id="video-call-btn" onclick="toggleVideoCall()">Start Video Call</button>
+                <button onclick="leaveRoom()">Leave Room</button>
+            </div>
+        </div>
+        
+        <div id="video-container" style="display: none;">
+            <div class="video-grid">
+                <div class="video-wrapper">
+                    <video id="local-video" autoplay playsinline muted></video>
+                    <div class="video-label">You</div>
+                </div>
+                <div class="video-wrapper">
+                    <video id="remote-video" autoplay playsinline></video>
+                    <div class="video-label">Remote User</div>
+                </div>
+            </div>
+            <div class="video-controls">
+                <button id="toggle-video" onclick="toggleVideo()">Toggle Video</button>
+                <button id="toggle-audio" onclick="toggleAudio()">Toggle Audio</button>
+                <button id="end-call" onclick="endCall()">End Call</button>
+            </div>
+        </div>
+
+        <div id="messages"></div>
+        <div class="input-group">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html> 
