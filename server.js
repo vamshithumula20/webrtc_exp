@@ -1,10 +1,10 @@
 const express = require('express');
-const http = require('http');
+const http = require('http'); // Use HTTP, Render handles HTTPS
 const WebSocket = require('ws');
 const path = require('path');
 
 const app = express();
-const server = http.createServer(app);
+const server = http.createServer(app); // Use HTTP
 const wss = new WebSocket.Server({ server });
 
 // Serve static files

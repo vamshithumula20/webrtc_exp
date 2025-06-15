@@ -31,7 +31,8 @@ function joinRoom() {
     }
 
     // Create WebSocket connection
-    ws = new WebSocket(`wss://${window.location.host}`);
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    ws = new WebSocket(`${protocol}//${window.location.host}`);
 
     ws.onopen = () => {
         // Send join message
